@@ -28,7 +28,7 @@ handleInputChange = (e) => {
 
 handleCitySubmit = (e) => {
   e.preventDefault();
-  let API = `http://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+  let API = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
 
 //   if (location.protocol === 'http:') {
 //     API = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
