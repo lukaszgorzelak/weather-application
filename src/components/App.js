@@ -28,7 +28,7 @@ handleInputChange = (e) => {
 
 handleCitySubmit = (e) => {
   e.preventDefault();
-  // const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+  let API = '';
 
   if (location.protocol === 'http:') {
     API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
