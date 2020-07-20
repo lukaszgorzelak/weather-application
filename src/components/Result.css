@@ -1,0 +1,20 @@
+.result{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top:20px;
+    border-top:2px solid lightseagreen;
+}
+
+span{
+    color: #0a6ebd;
+    font-weight: bold;
+    background-color:#d3eafd;
+    padding: 0.5rem 0.5rem;
+    border: 2px solid #82c4f8 !important;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 500px;
+    display: inline-block;
+    text-align: center;
+    opacity: 0.8;
+}
