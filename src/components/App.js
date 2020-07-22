@@ -33,7 +33,7 @@ handleInputChange = (e) => {
 handleCitySubmit = (e) => {
   e.preventDefault();
   // let API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-  let API = `https://cors-anywhere.herokuapp.com/https://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
+  let API = `https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
 
 
 //   if (location.protocol === 'http:') {
