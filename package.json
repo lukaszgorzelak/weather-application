@@ -1,6 +1,6 @@
 {
   "name": "weather-application",
-  "homepage": "https://lukaszgorzelak.github.io/weatherapplication/",
+  "homepage": "https://github.com/lukaszgorzelak/weather",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

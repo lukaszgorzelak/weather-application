@@ -3,7 +3,7 @@ import Form from './Form';
 import Result from './Result';
 import  './App.css';
 
-const APIKey = `a26713c691dbef1d98428c0c5ef75c06`;
+const APIKey = `96485acf2df68545b326e51fcbc1e970`;
 class App extends Component {
 
 state = {
@@ -13,11 +13,15 @@ state = {
   sunrise: '',
   sunset: '',
   temp: '',
+  timezone:'',
+  icon:'',
   pressure: '',
   wind: '',
   error: false,
   description:'',
-  main:'',
+  mintemp:'',
+  maxtemp:'',
+  sunhour:''
 };
 
 handleInputChange = (e) => {
@@ -28,7 +32,9 @@ handleInputChange = (e) => {
 
 handleCitySubmit = (e) => {
   e.preventDefault();
-  let API = `https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+  // let API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+  let API = `https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
+
 
 //   if (location.protocol === 'http:') {
 //     API = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
@@ -46,19 +52,23 @@ handleCitySubmit = (e) => {
   .then(response => response.json())
   .then(data => {
 
-    const time = new Date().toLocaleString();
+    // const time = new Date().toLocaleString();
 
 this.setState({
   error:false,
-  date: time,
-  sunrise: data.sys.sunrise,
-  sunset: data.sys.sunset,
-  temp: data.main.temp,
-  pressure: data.main.pressure,
-  wind: data.wind.speed,
+  date: data.location.localtime,
+  timezone: data.location.timezone_id,
+  sunrise: data.forecast['2020-07-21'].astro.sunrise,
+  sunset: data.forecast['2020-07-21'].astro.sunset,
+  mintemp: data.forecast['2020-07-21'].mintemp,
+  maxtemp: data.forecast['2020-07-21'].maxtemp,
+  sunhour: data.forecast['2020-07-21'].sunhour,
+  temp: data.current.temperature,
+  pressure: data.current.pressure,
+  wind: data.current.wind_speed,
   city: this.state.value,
-  description: data.weather[0].description,
-  main: data.weather[0].main,
+  description: data.current.weather_descriptions,
+ 
 })
   })
   .catch(error => {
