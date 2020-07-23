@@ -1,6 +1,6 @@
 {
   "name": "weather-application",
-  "homepage": " https://lukaszgorzelak.github.io/aplikacja-pogodowa",
+  "homepage": "https://lukaszgorzelak.github.io/weather-application/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

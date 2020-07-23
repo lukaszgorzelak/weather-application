@@ -21,7 +21,7 @@ state = {
   description:'',
   mintemp:'',
   maxtemp:'',
-  sunhour:''
+  sunhour:'',
 };
 
 handleInputChange = (e) => {
@@ -58,11 +58,11 @@ this.setState({
   error:false,
   date: data.location.localtime,
   timezone: data.location.timezone_id,
-  sunrise: data.forecast['2020-07-21'].astro.sunrise,
-  sunset: data.forecast['2020-07-21'].astro.sunset,
-  mintemp: data.forecast['2020-07-21'].mintemp,
-  maxtemp: data.forecast['2020-07-21'].maxtemp,
-  sunhour: data.forecast['2020-07-21'].sunhour,
+  sunrise: data.forecast[ '2020-07-22'].astro.sunrise,
+  sunset: data.forecast['2020-07-22'].astro.sunset,
+  mintemp: data.forecast[ '2020-07-22'].mintemp,
+  maxtemp: data.forecast[ '2020-07-22'].maxtemp,
+  sunhour: data.forecast[ '2020-07-22'].sunhour,
   temp: data.current.temperature,
   pressure: data.current.pressure,
   wind: data.current.wind_speed,
