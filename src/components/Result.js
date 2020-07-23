@@ -3,8 +3,7 @@ import './Result.css';
 
 const Result = (props) => {
 
-    const{error, city,date,temp,timezone,description,pressure,wind} = props.weather;
-    // sunset,sunrise,mintemp,maxtemp,sunhour
+    const{error, city,date,temp,timezone,description,pressure,wind,sunset,sunrise,mintemp,maxtemp,sunhour} = props.weather;
 
 let content = null;
 let bad = null;
@@ -19,14 +18,14 @@ if(!error && city){
         <p>Data i godzina: <span>{date}</span></p>
         <p>Aktualna temperatura: <span>{temp} &#176;C</span></p>
         <p>Strefa czasowa: <span>{timezone}</span></p>
-        {/* <p>Wschód słońca: <span>{sunrise}</span></p> 
-        <p>Zachód słońca: <span>{sunset}</span></p>  */}
+        <p>Wschód słońca: <span>{sunrise}</span></p> 
+        <p>Zachód słońca: <span>{sunset}</span></p> 
         <p>Siła wiatru: <span>{wind} m/s</span></p> 
         <p>Ciśnienie: <span>{pressure} hPa</span></p>
         <p>Zachmurzenie: <span>{description}</span></p>
-        {/* <p>Min. Temperatura: <span>{mintemp} &#176;C</span></p>
+        <p>Min. Temperatura: <span>{mintemp} &#176;C</span></p>
         <p>Max. Temperatura: <span>{maxtemp} &#176;C</span></p> 
-        <p>Liczba godz. słonecznych: <span>{sunhour} h</span></p>  */}
+        <p>Liczba godz. słonecznych: <span>{sunhour} h</span></p> 
         </div>
     </>
     )
