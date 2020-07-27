@@ -55,6 +55,7 @@ handleCitySubmit = (e) => {
 this.setState({
   error:false,
   date: data.location.localtime,
+<<<<<<< HEAD
   timezone: data.location.tz_id,
   sunrise: data.forecast.forecastday[0].astro.sunrise,
   sunset: data.forecast.forecastday[0].astro.sunset,
@@ -64,6 +65,17 @@ this.setState({
   temp: data.current.temp_c,
   pressure: data.current.pressure_mb,
   wind: data.current.wind_kph,
+=======
+  timezone: data.location.timezone_id,
+  sunrise: data.forecast[ '2020-07-23'].astro.sunrise,
+  sunset: data.forecast['2020-07-23'].astro.sunset,
+  mintemp: data.forecast[ '2020-07-23'].mintemp,
+  maxtemp: data.forecast[ '2020-07-23'].maxtemp,
+  sunhour: data.forecast[ '2020-07-23'].sunhour,
+  temp: data.current.temperature,
+  pressure: data.current.pressure,
+  wind: data.current.wind_speed,
+>>>>>>> 99ca23243d0d502c8f448ea63a9666a0ce7aa404
   city: this.state.value,
   code:data.forecast.forecastday[0].day.condition.code,
   description: data.forecast.forecastday[0].day.condition.text,
