@@ -3,9 +3,11 @@ import Form from './Form';
 import Result from './Result';
 import  './App.css';
 
-const APIKey = `96485acf2df68545b326e51fcbc1e970`;
-class App extends Component {
+// const APIKey = `96485acf2df68545b326e51fcbc1e970`;
+const APIKey = `  d6cb2496f01942fba2e42052202107`;
 
+class App extends Component {
+  
 state = {
   value: "",
   date: '',
@@ -14,7 +16,6 @@ state = {
   sunset: '',
   temp: '',
   timezone:'',
-  icon:'',
   pressure: '',
   wind: '',
   error: false,
@@ -22,6 +23,8 @@ state = {
   mintemp:'',
   maxtemp:'',
   sunhour:'',
+  icon:'',
+  code:'',
 };
 
 handleInputChange = (e) => {
@@ -33,14 +36,8 @@ handleInputChange = (e) => {
 handleCitySubmit = (e) => {
   e.preventDefault();
   // let API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-  let API = `https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
-
-
-//   if (location.protocol === 'http:') {
-//     API = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-//  } else {
-//     API = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-//  }
+  // let API = `https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
+  let API = `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${this.state.value}&days=1&units=m`;
 
   fetch(API)
   .then(response =>{
@@ -52,22 +49,25 @@ handleCitySubmit = (e) => {
   .then(response => response.json())
   .then(data => {
 
-    // const time = new Date().toLocaleString();
+    // const time = new Date();
+   
 
 this.setState({
   error:false,
   date: data.location.localtime,
-  timezone: data.location.timezone_id,
-  sunrise: data.forecast[ '2020-07-22'].astro.sunrise,
-  sunset: data.forecast['2020-07-22'].astro.sunset,
-  mintemp: data.forecast[ '2020-07-22'].mintemp,
-  maxtemp: data.forecast[ '2020-07-22'].maxtemp,
-  sunhour: data.forecast[ '2020-07-22'].sunhour,
-  temp: data.current.temperature,
-  pressure: data.current.pressure,
-  wind: data.current.wind_speed,
+  timezone: data.location.tz_id,
+  sunrise: data.forecast.forecastday[0].astro.sunrise,
+  sunset: data.forecast.forecastday[0].astro.sunset,
+  mintemp: data.forecast.forecastday[0].day.mintemp_c,
+  maxtemp: data.forecast.forecastday[0].day.maxtemp_c,
+  // sunhour: data.forecast.forecastday.day.mintemp_c.sunhour,
+  temp: data.current.temp_c,
+  pressure: data.current.pressure_mb,
+  wind: data.current.wind_kph,
   city: this.state.value,
-  description: data.current.weather_descriptions,
+  code:data.forecast.forecastday[0].day.condition.code,
+  description: data.forecast.forecastday[0].day.condition.text,
+  
  
 })
   })

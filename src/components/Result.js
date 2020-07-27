@@ -1,16 +1,13 @@
 import React from 'react';
 import './Result.css';
-
 const Result = (props) => {
 
-    const{error, city,date,temp,timezone,description,pressure,wind,sunset,sunrise,mintemp,maxtemp,sunhour} = props.weather;
+    const{error, city,date,temp,timezone,description,pressure,wind,sunset,sunrise,mintemp,maxtemp} = props.weather;
 
 let content = null;
 let bad = null;
 if(!error && city){
 
-// const sunriseTime = new Date(sunrise * 1000).toLocaleTimeString()
-// const sunsetTime = new Date(sunset * 1000).toLocaleTimeString()
     content = (
     <>
     <div className="container">
@@ -25,7 +22,8 @@ if(!error && city){
         <p>Zachmurzenie: <span>{description}</span></p>
         <p>Min. Temperatura: <span>{mintemp} &#176;C</span></p>
         <p>Max. Temperatura: <span>{maxtemp} &#176;C</span></p> 
-        <p>Liczba godz. słonecznych: <span>{sunhour} h</span></p> 
+        {/* <p>Grafika: <span>{icon}</span></p> 
+        <p>Kod: <span>{code}</span></p>  */}
         </div>
     </>
     )

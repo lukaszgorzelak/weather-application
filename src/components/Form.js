@@ -7,7 +7,6 @@ const Form = (props) => {
             <input type="text" value={props.value} onChange={props.change}  placeholder="Podaj miasto"/>
             <button>Wyszukaj miasto</button>
         </form> 
-    
     );
 }
  
