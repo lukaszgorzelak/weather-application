@@ -57,17 +57,21 @@ strong{
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     padding: 0.5rem 0.5rem;
     border-radius: 4px;
     font-weight: 600;
     color: white;
 }
 
-p{
+ul{
+list-style: none;
+display: flex;
+flex-direction: column;
+align-items:center;
+}
+
+li{
     font-size: 20px;
+    margin-bottom: 10px;
 }
 

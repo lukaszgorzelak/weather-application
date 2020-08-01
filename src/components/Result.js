@@ -1,29 +1,30 @@
 import React from 'react';
 import './Result.css';
+
 const Result = (props) => {
 
     const{error, city,date,temp,timezone,description,pressure,wind,sunset,sunrise,mintemp,maxtemp} = props.weather;
+    let bad = null;
+    let content = null;
 
-let content = null;
-let bad = null;
 if(!error && city){
 
     content = (
     <>
     <div className="container">
-        <h1>Wyniki wyszukiwania dla: <span>{city}</span></h1>
-        <p>Data i godzina: <span>{date}</span></p>
-        <p>Aktualna temperatura: <span>{temp} &#176;C</span></p>
-        <p>Strefa czasowa: <span>{timezone}</span></p>
-        <p>Wschód słońca: <span>{sunrise}</span></p> 
-        <p>Zachód słońca: <span>{sunset}</span></p> 
-        <p>Siła wiatru: <span>{wind} m/s</span></p> 
-        <p>Ciśnienie: <span>{pressure} hPa</span></p>
-        <p>Zachmurzenie: <span>{description}</span></p>
-        <p>Min. Temperatura: <span>{mintemp} &#176;C</span></p>
-        <p>Max. Temperatura: <span>{maxtemp} &#176;C</span></p> 
-        {/* <p>Grafika: <span>{icon}</span></p> 
-        <p>Kod: <span>{code}</span></p>  */}
+        <ul>
+        <li>Miasto: <span>{city}</span></li>
+        <li>Data i godzina: <span>{date}</span></li>
+        <li>Aktualna temperatura: <span>{temp} &#176;C</span></li>
+        <li>Strefa czasowa: <span>{timezone}</span></li>
+        <li>Wschód słońca: <span>{sunrise}</span></li> 
+        <li>Zachód słońca: <span>{sunset}</span></li> 
+        <li>Siła wiatru: <span>{wind} m/s</span></li> 
+        <li>Ciśnienie: <span>{pressure} hPa</span></li>
+        <li>Zachmurzenie: <span>{description}</span></li>
+        <li>Min. Temperatura: <span>{mintemp} &#176;C</span></li>
+        <li>Max. Temperatura: <span>{maxtemp} &#176;C</span></li> 
+        </ul>
         </div>
     </>
     )
@@ -31,15 +32,12 @@ if(!error && city){
 
 bad=(
     <div className="error">
-            <p>Nie ma takiego miasta: <strong>{city}</strong> w bazie</p>
+        <p>Nie ma takiego miasta: <strong>{city}</strong> w bazie</p>
     </div>
-
 )
     return (  
    <div className="result">
-    
-{error ? bad : content}
-
+        {error ? bad : content}
    </div>
     );
 }

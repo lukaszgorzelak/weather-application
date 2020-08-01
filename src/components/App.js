@@ -3,7 +3,6 @@ import Form from './Form';
 import Result from './Result';
 import  './App.css';
 
-// const APIKey = `96485acf2df68545b326e51fcbc1e970`;
 const APIKey = `  d6cb2496f01942fba2e42052202107`;
 
 class App extends Component {
@@ -35,9 +34,7 @@ handleInputChange = (e) => {
 
 handleCitySubmit = (e) => {
   e.preventDefault();
-  // let API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
-  // let API = `https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=${APIKey}&query=${this.state.value}&units=m`;
-  let API = `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${this.state.value}&days=1&units=m`;
+  let API = `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${this.state.value}&days=1&units=m&lang=pl`;
 
   fetch(API)
   .then(response =>{
@@ -48,9 +45,6 @@ handleCitySubmit = (e) => {
   })
   .then(response => response.json())
   .then(data => {
-
-    // const time = new Date();
-   
 
 this.setState({
   error:false,
@@ -63,20 +57,9 @@ this.setState({
   temp: data.current.temp_c,
   pressure: data.current.pressure_mb,
   wind: data.current.wind_kph,
-  // timezone: data.location.timezone_id,
-  // sunrise: data.forecast[ '2020-07-23'].astro.sunrise,
-  // sunset: data.forecast['2020-07-23'].astro.sunset,
-  // mintemp: data.forecast[ '2020-07-23'].mintemp,
-  // maxtemp: data.forecast[ '2020-07-23'].maxtemp,
-  // sunhour: data.forecast[ '2020-07-23'].sunhour,
-  // temp: data.current.temperature,
-  // pressure: data.current.pressure,
-  // wind: data.current.wind_speed,
   city: this.state.value,
   code:data.forecast.forecastday[0].day.condition.code,
   description: data.forecast.forecastday[0].day.condition.text,
-  
- 
 })
   })
   .catch(error => {
