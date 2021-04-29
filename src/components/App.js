@@ -34,7 +34,7 @@ handleInputChange = (e) => {
 
 handleCitySubmit = (e) => {
   e.preventDefault();
-  let API = `https://cors-anywhere.herokuapp.com/https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${this.state.value}&days=1&units=m&lang=pl`;
+  let API = `https://cors-anywhere.herokuapp.com/corsdemo/https://api.weatherapi.com/v1/forecast.json?key=${APIKey}&q=${this.state.value}&days=1&units=m&lang=pl`;
 
   fetch(API)
   .then(response =>{
